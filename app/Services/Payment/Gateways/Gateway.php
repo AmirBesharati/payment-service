@@ -10,7 +10,11 @@ abstract class Gateway
     protected $config;
     protected $invoice;
 
-
+    public function __construct(Invoice $invoice)
+    {
+        $this->fetch_config();
+        $this->invoice = $invoice;
+    }
 
     abstract public function make_payment();
 

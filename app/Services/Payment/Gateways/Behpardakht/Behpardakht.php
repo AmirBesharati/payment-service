@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Config;
 
 class Behpardakht extends Gateway
 {
-
-
     protected $config;
     protected $invoice;
 

@@ -2,6 +2,9 @@
 
 namespace App\Services\Payment;
 
+/**
+ * @description : Invoice Class make an object of necessary information for payment such as (Amount , user id , description , order id and etc..)
+ */
 class Invoice
 {
 

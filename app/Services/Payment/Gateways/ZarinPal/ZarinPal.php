@@ -11,18 +11,6 @@ use Illuminate\Support\Facades\Http;
 
 class ZarinPal extends Gateway
 {
-    /**
-     * @var mixed
-     */
-    protected $config;
-    protected $invoice;
-
-
-    public function __construct(Invoice $invoice)
-    {
-        $this->fetch_config();
-        $this->invoice = $invoice;
-    }
 
     /**
      * @throws MakePaymentFailedException

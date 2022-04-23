@@ -3,6 +3,7 @@
 namespace App\Services\Payment;
 
 use App\Exceptions\Payment\GateWayNotFoundException;
+use App\Services\Payment\Gateways\Behpardakht\Behpardakht;
 use App\Services\Payment\Gateways\ZarinPal\ZarinPal;
 
 class GatewayDetector
@@ -30,6 +31,10 @@ class GatewayDetector
         switch ($this->gateway_name){
             case self::_GATEWAY_ZARINPAL:
                 return new ZarinPal($this->invoice);
+                break;
+
+            case self::_GATEWAY_BEHPARDAKHT:
+                return new Behpardakht($this->invoice);
                 break;
         }
         throw new GateWayNotFoundException('Gateway Not found' , 400);

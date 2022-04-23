@@ -11,7 +11,6 @@ class Payment
 {
     protected $gateway_name = null;
     protected $invoice;
-
     /** @var Gateway $gateway*/
     protected $gateway = null;
 
@@ -56,12 +55,20 @@ class Payment
         return $this->gateway;
     }
 
+    /**
+     * @description : responsibility of this function is to call GatewayDetector to initialize selected Gateway class by Gateway name
+     * @throws \App\Exceptions\Payment\GateWayNotFoundException
+     */
     private function fetch_gateway_class()
     {
         $gateway_detector = new GatewayDetector($this->invoice , $this->getGatewayName());
         $this->gateway = $gateway_detector->gateway();
     }
 
+    /**
+     * @description : responsibility of this calss is to call essential payment methods and redirect user to payment page by do_payment method
+     * @throws \App\Exceptions\Payment\GateWayNotFoundException
+     */
     public function do_payment($callback = null)
     {
         //fetch gateway config
