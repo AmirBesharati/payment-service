@@ -6,6 +6,9 @@ use App\Exceptions\Payment\GateWayNotFoundException;
 use App\Services\Payment\Gateways\Behpardakht\Behpardakht;
 use App\Services\Payment\Gateways\ZarinPal\ZarinPal;
 
+/**
+ * @description : responsibility of this class is to initial corresponding gateway class
+ */
 class GatewayDetector
 {
     protected $gateway_name;
